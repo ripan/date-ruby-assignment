@@ -1,6 +1,6 @@
 require 'rspec'
 require 'date'
-require '/Users/ripan/Google Drive/date-ruby-assignment/date_range_formatter'
+require '/Users/ripan/projects/date-ruby-assignment/date_range_formatter'
 #require 'spec_helper'
 
 describe DateRangeFormatter do  

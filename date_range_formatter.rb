@@ -10,18 +10,33 @@ class DateRangeFormatter
   end
 
   def to_s
-    if start_on.day == end_on.day
+    if same_day?
       fm = FormatterDay.new(start_on.to_s,end_on.to_s,starting_time, ending_time)
-    elsif start_on.month == end_on.month
+    elsif same_month?
       fm = FormatterMonth.new(start_on.to_s,end_on.to_s,starting_time, ending_time)
-    elsif start_on.year == end_on.year
+    elsif same_year?
       fm = FormatterYear.new(start_on.to_s,end_on.to_s,starting_time, ending_time)
-    else
+    elsif different_year?
       fm = FormatterDifferentYear.new(start_on.to_s,end_on.to_s,starting_time, ending_time)
     end
     return fm.to_s
   end
 
+  def same_day?
+    start_on.day == end_on.day
+  end
+
+  def same_month?
+    start_on.month == end_on.month
+  end
+
+  def same_year?
+    start_on.year == end_on.year
+  end
+
+  def different_year?
+    start_on.year != end_on.year
+  end
 end
 
 
@@ -114,7 +129,7 @@ class FormatterDifferentYear < DateRangeFormatter
     end
     return a
   end
-  
+
 end
 
 # formatter = FormatterDay.new "2009-11-1", "2009-11-1"
@@ -168,11 +183,14 @@ puts 'DIFFERENT YEAR'
 formatter = DateRangeFormatter.new "2009-11-1", "2010-12-1"
 puts formatter.to_s
 puts formatter.to_s == "1st November 2009 - 1st December 2010"
+puts "1st November 2009 - 1st December 2010"
 
 formatter = DateRangeFormatter.new "2009-11-1", "2010-12-1", "10:00"
 puts formatter.to_s
 puts formatter.to_s == "1st November 2009 at 10:00 - 1st December 2010"
+puts "1st November 2009 at 10:00 - 1st December 2010"
 
 formatter = DateRangeFormatter.new "2009-11-1", "2010-12-1", "10:00", "11:00"
 puts formatter.to_s
 puts formatter.to_s == "1st November 2009 at 10:00 - 1st December 2010 at 11:00"
+puts "1st November 2009 at 10:00 - 1st December 2010 at 11:00"
