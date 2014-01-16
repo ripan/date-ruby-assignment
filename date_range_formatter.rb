@@ -23,7 +23,7 @@ class DateRangeFormatter
   end
 
   def same_day?
-    start_on.day == end_on.day
+    start_on == end_on
   end
 
   def same_month?
@@ -35,7 +35,7 @@ class DateRangeFormatter
   end
 
   def different_year?
-    start_on.year != end_on.year
+    start_on.year != end_on.year 
   end
 end
 
