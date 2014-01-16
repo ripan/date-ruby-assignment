@@ -67,38 +67,3 @@ describe DateRangeFormatter do
   end
   
 end
-
-
-
-
-
-# class DateRangeFormatter
-  
-#   attr_reader :start_on, :end_on, :starting_time, :ending_time
-  
-#   def initialize start_on, end_on, starting_time = nil, ending_time = nil
-#     @start_on = Date.parse(start_on)
-#     @end_on = Date.parse(end_on)
-#     @starting_time, @ending_time = starting_time, ending_time
-#   end
-  
-#   def to_s
-#     start_on.strftime("#{start_on.day.ordinalize} %B %Y")
-#   end
-# end
-
-
-# class Fixnum
-#   def ordinalize
-#       if (11..13).include?(self.abs % 100)
-#         "#{self}th"
-#       else
-#         case self.to_i.abs % 10
-#           when 1; "#{self}st"
-#           when 2; "#{self}nd"
-#           when 3; "#{self}rd"
-#           else    "#{self}th"
-#         end
-#       end
-#     end
-# end
