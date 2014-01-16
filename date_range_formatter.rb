@@ -27,7 +27,7 @@ class DateRangeFormatter
   end
 
   def same_month?
-    start_on.month == end_on.month
+    (start_on.month == end_on.month) && (start_on.year == end_on.year)
   end
 
   def same_year?
